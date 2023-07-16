@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tharwatflutter/core/constants/app_router.dart';
-import 'best_seller_list_item_image.dart';
+import 'custom_book_item.dart';
 import 'best_seller_list_item_texts.dart';
 
 class BestSellerListItem extends StatelessWidget {
@@ -18,7 +18,7 @@ class BestSellerListItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BestSellerListItemImage(),
+            CustomBookImage(),
             SizedBox(
               width: 30,
             ),

@@ -22,7 +22,7 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 43,
           ),
-          Text(
+          const Text(
             'The Jungle Book',
             style: Styles.textStyle30,
           ),

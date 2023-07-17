@@ -14,6 +14,7 @@ class ImageListViewBookDetails extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
+              fit: BoxFit.fill,
                 image: AssetImage(Assets.imagesTestImage))),
       ),
     );

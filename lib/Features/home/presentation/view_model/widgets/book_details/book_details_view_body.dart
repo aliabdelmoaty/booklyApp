@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tharwatflutter/Features/home/presentation/view_model/widgets/home_view/book_rating.dart';
 import 'package:tharwatflutter/core/constants/styles.dart';
 import '../home_view/custom_book_item.dart';
+import 'action_book_details.dart';
 import 'custom_book_details_appBar.dart';
 import 'list_view_item_book_details.dart';
 
@@ -25,7 +26,7 @@ class BookDetailsViewBody extends StatelessWidget {
                   child: const CustomBookImage(),
                 ),
                 const SizedBox(
-                  height: 43,
+                  height: 40,
                 ),
                 const Text(
                   'The Jungle Book',
@@ -45,11 +46,15 @@ class BookDetailsViewBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 18,
+                  height: 16,
                 ),
                 const BookRating(
                   mainAxisAlignment: MainAxisAlignment.center,
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const BooksAction(),
                 const Expanded(
                   child: SizedBox(
                     height: 50,
@@ -68,7 +73,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
                 const ListViewBookDetails(),
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
               ],
             ),

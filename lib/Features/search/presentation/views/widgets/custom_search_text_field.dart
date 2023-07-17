@@ -7,6 +7,7 @@ class CustomSearchText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
       decoration: InputDecoration(
           enabledBorder: buildOutLineBorder(),
           focusedBorder: buildOutLineBorder(),

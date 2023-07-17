@@ -4,8 +4,8 @@ import 'package:tharwatflutter/core/constants/app_router.dart';
 import 'custom_book_item.dart';
 import 'best_seller_list_item_texts.dart';
 
-class BestSellerListItem extends StatelessWidget {
-  const BestSellerListItem({super.key});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tharwatflutter/core/constants/assets.dart';
-import 'package:tharwatflutter/core/constants/constants.dart';
-
 abstract class Styles {
   static const textStyle18 = TextStyle(
     fontSize: 18,

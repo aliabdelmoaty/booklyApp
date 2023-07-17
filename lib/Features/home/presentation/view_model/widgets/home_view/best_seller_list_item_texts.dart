@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tharwatflutter/core/constants/assets.dart';
-
-import '../../../../../../core/constants/constants.dart';
 import '../../../../../../core/constants/styles.dart';
 import 'book_rating.dart';
 

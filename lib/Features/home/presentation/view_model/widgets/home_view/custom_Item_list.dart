@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/constants/assets.dart';
 
-
 class ListViewItem extends StatelessWidget {
   const ListViewItem({super.key});
 

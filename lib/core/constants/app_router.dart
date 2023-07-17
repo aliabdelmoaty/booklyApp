@@ -1,4 +1,3 @@
-
 import 'package:tharwatflutter/Features/home/presentation/view_model/home_view.dart';
 import 'package:tharwatflutter/Features/search/presentation/views/search_view.dart';
 
@@ -7,12 +6,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../Features/home/presentation/view_model/book_details.dart';
 
-abstract class AppRouter{
-  static const kHomeView ='/homeView';
-  static const kBookDetailsView ='/bookDetailsView';
+abstract class AppRouter {
+  static const kHomeView = '/homeView';
+  static const kBookDetailsView = '/bookDetailsView';
   static const kSearchView = '/searchView';
 
-  static  final router = GoRouter(
+  static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
@@ -28,7 +27,7 @@ abstract class AppRouter{
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) =>  const SearchView(),
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );

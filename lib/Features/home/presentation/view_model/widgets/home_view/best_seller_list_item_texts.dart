@@ -5,7 +5,6 @@ import '../../../../../../core/constants/constants.dart';
 import '../../../../../../core/constants/styles.dart';
 import 'book_rating.dart';
 
-
 class BestSellerListItemTexts extends StatelessWidget {
   const BestSellerListItemTexts({
     super.key,

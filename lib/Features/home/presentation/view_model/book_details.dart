@@ -11,6 +11,5 @@ class BookDetailsView extends StatelessWidget {
         body: BookDetailsViewBody(),
       ),
     );
-    
   }
 }

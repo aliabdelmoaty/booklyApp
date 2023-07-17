@@ -3,6 +3,7 @@ import 'package:tharwatflutter/Features/home/presentation/view_model/widgets/hom
 import 'package:tharwatflutter/core/constants/styles.dart';
 import '../home_view/custom_book_item.dart';
 import 'custom_book_details_appBar.dart';
+import 'list_view_item_book_details.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -45,6 +46,20 @@ class BookDetailsViewBody extends StatelessWidget {
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const ListViewBookDetails(),
         ],
       ),
     );

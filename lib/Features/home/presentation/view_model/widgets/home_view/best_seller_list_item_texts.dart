@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tharwatflutter/core/constants/assets.dart';
 
 import '../../../../../../core/constants/constants.dart';
 import '../../../../../../core/constants/styles.dart';
@@ -19,7 +20,7 @@ class BestSellerListItemTexts extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .5,
           child: Text('Harry Potter and the Goblet of Fire',
               style: Styles.textStyle20.copyWith(
-                fontFamily: kGtSectraFine,
+                fontFamily: Assets.kGtSectraFine,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis),

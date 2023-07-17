@@ -8,4 +8,6 @@ class Assets {
   /// Assets for imagesTestImage
   /// assets/images/test_image.png
   static const String imagesTestImage = "assets/images/test_image.png";
+  static const String kGtSectraFine = "assets/fonts/GT Sectra Fine Regular.ttf";
+
 }

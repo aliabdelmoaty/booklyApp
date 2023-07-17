@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tharwatflutter/core/constants/assets.dart';
 import 'package:tharwatflutter/core/constants/constants.dart';
 
 abstract class Styles {
@@ -22,6 +23,6 @@ abstract class Styles {
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w900,
-    fontFamily: kGtSectraFine,
+    fontFamily: Assets.kGtSectraFine,
   );
 }

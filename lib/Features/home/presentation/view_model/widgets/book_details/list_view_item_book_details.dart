@@ -15,7 +15,7 @@ class ListViewBookDetails extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return const Padding(
-                padding: EdgeInsets.all(4.0),
+                padding: EdgeInsets.symmetric(horizontal:4.0),
                 child: ImageListViewBookDetails());
           },
         ));

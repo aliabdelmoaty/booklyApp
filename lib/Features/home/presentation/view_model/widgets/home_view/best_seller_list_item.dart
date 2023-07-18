@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tharwatflutter/core/constants/app_router.dart';
-import 'custom_book_item.dart';
+import 'custom_book_item_image.dart';
 import 'best_seller_list_item_texts.dart';
 
 class BookListViewItem extends StatelessWidget {

@@ -1,22 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/constants/assets.dart';
-
-class ListViewItem extends StatelessWidget {
-  const ListViewItem({super.key});
-
+class ListViewItemImage extends StatelessWidget {
+  const ListViewItemImage({
+    Key? key,
+    required this.imageUrl,
+  }) : super(key: key);
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.8 / 4,
       child: Container(
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: Colors.blue,
+        // child: FadeInImage(placeholder: placeholder, image: image),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
             image: DecorationImage(
-                fit: BoxFit.fill, image: AssetImage(Assets.imagesTestImage))),
+                fit: BoxFit.fill, image: NetworkImage(imageUrl))),
       ),
     );
   }

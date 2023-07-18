@@ -19,16 +19,20 @@ class BooksListView extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 8,
-              itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 6.0),
-                child: ListViewItem(),
+              itemCount: state.books.length,
+              itemBuilder: (context, index) =>  Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                child: ListViewItemImage(
+                  imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                ),
               ),
             ),
           );
         } else if (state is FeatureBooksFailure) {
-          return CustomErrorWidget(errMsg: state.error,);
-        }else{
+          return CustomErrorWidget(
+            errMsg: state.error,
+          );
+        } else {
           return Center(child: CustomProgressWidget());
         }
       },

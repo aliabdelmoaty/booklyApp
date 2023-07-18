@@ -22,8 +22,13 @@ class BooksListView extends StatelessWidget {
               itemCount: state.books.length,
               itemBuilder: (context, index) =>  Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                child: ListViewItemImage(
-                  imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                child: InkWell(
+                  onTap: () {
+                    
+                  },
+                  child: ListViewItemImage(
+                    imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                  ),
                 ),
               ),
             ),

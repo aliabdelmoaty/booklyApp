@@ -6,8 +6,11 @@ import 'book_rating.dart';
 class BestSellerListItemTexts extends StatelessWidget {
   const BestSellerListItemTexts({
     super.key,
+    required this.titleBook,
+    required this.authorsBook,
   });
-
+  final String titleBook;
+  final String authorsBook;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +18,7 @@ class BestSellerListItemTexts extends StatelessWidget {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width * .5,
-          child: Text('Harry Potter and the Goblet of Fire',
+          child: Text(titleBook,
               style: Styles.textStyle20.copyWith(
                 fontFamily: Assets.kGtSectraFine,
               ),
@@ -25,23 +28,14 @@ class BestSellerListItemTexts extends StatelessWidget {
         const SizedBox(
           height: 3,
         ),
-        const Text(
-          'J.K.Rowling',
+        Text(
+          authorsBook,
           style: Styles.textStyle14,
         ),
         const SizedBox(
           height: 3,
         ),
-        Row(
-          children: [
-            Text(
-              '19.19 €',
-              style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
-            ),
-            const Spacer(),
-            const BookRating()
-          ],
-        )
+       
       ],
     );
   }

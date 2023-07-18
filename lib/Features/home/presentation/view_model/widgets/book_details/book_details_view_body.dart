@@ -23,7 +23,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 const CustomBookDetailsAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .22),
-                  child:  CustomBookImage(),
+                  child:  CustomBookImage(imageUrl: '',),
                 ),
                 const SizedBox(
                   height: 40,
@@ -48,9 +48,9 @@ class BookDetailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const BookRating(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
+                // const BookRating(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                // ),
                 const SizedBox(
                   height: 40,
                 ),

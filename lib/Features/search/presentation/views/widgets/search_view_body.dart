@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tharwatflutter/Features/search/presentation/views/widgets/searchResultListView.dart';
 import 'package:tharwatflutter/core/constants/styles.dart';
-
-import '../../../../home/presentation/view_model/widgets/home_view/best_seller_list_item.dart';
 import 'custom_search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -32,23 +31,4 @@ class SearchViewBody extends StatelessWidget {
   }
 }
 
-class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(5),
-        physics: const BouncingScrollPhysics(),
-        itemCount: 30,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 10,
-            ),
-            child: BookListViewItem(),
-          );
-        });
-  }
-}

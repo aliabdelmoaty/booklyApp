@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: file_names
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tharwatflutter/constants/assets.dart';
 
 class ListViewItemImage extends StatelessWidget {
   const ListViewItemImage({
@@ -11,15 +13,21 @@ class ListViewItemImage extends StatelessWidget {
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.8 / 4,
-      child: Container(
-        // child: FadeInImage(placeholder: placeholder, image: image),
-        decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(15)),
-            image: DecorationImage(
-                fit: BoxFit.fill, image: NetworkImage(imageUrl))),
-      ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: AspectRatio(
+          aspectRatio: 2.8 / 4,
+          child: CachedNetworkImage(
+            placeholder: (context, url) => const Image(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  Assets.imagesLoading,
+                )),
+            imageUrl: imageUrl,
+            errorWidget: (context, url, error) => const Image(
+                fit: BoxFit.fill, image: AssetImage(Assets.imagesLoading)),
+            fit: BoxFit.fill,
+          )),
     );
   }
 }

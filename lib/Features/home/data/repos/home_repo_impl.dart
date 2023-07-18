@@ -35,8 +35,8 @@ class HomeRepoImpl implements HomeRepo {
           endpoint:
               'volumes?Filtering=free-ebooks&q=subject:programming');
       List<BookModel> books = [];
-      for (var item in data['item']) {
-        books.add(item);
+      for (var item in data['items']) {
+        books.add(BookModel.fromModel(item));
       }
       return right(books);
     } catch (e) {

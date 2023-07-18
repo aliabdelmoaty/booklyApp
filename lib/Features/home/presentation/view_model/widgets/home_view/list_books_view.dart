@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tharwatflutter/Features/home/presentation/manager/featured_books/feature_books_cubit.dart';
 
+import '../../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../../core/widgets/progress_loading.dart';
 import 'custom_Item_list.dart';
 
 class BooksListView extends StatelessWidget {
@@ -7,17 +11,27 @@ class BooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 8,
-        itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 6.0),
-          child: ListViewItem(),
-        ),
-      ),
+    return BlocBuilder<FeatureBooksCubit, FeatureBooksState>(
+      builder: (context, state) {
+        if (state is FeatureBooksSuccess) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * .3,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: 8,
+              itemBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.0),
+                child: ListViewItem(),
+              ),
+            ),
+          );
+        } else if (state is FeatureBooksFailure) {
+          return CustomErrorWidget(errMsg: state.error,);
+        }else{
+          return Center(child: CustomProgressWidget());
+        }
+      },
     );
   }
 }

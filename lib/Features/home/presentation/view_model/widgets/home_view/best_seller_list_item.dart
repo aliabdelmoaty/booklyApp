@@ -12,6 +12,12 @@ class BookListViewItem extends StatelessWidget {
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
+    String authorsBook;
+    if (bookModel.volumeInfo!.authors == null) {
+      authorsBook = "The author was not found";
+    } else {
+      authorsBook = bookModel.volumeInfo!.authors![0];
+    }
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
@@ -22,7 +28,7 @@ class BookListViewItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomBookImage(
-              imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+              imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail??'https://i.quotev.com/lzpyzwtj6qsa.jpg',
             ),
             const SizedBox(
               width: 30,
@@ -32,11 +38,13 @@ class BookListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BestSellerListItemTexts(
-                    authorsBook: bookModel.volumeInfo!.authors!.first??"The author was not found.",
-                    titleBook: bookModel.volumeInfo!.title!,
+                    authorsBook: authorsBook,
+                    titleBook: bookModel.volumeInfo!.title??'title',
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Row(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Free',
@@ -45,10 +53,10 @@ class BookListViewItem extends StatelessWidget {
                       ),
                       const Spacer(),
                       BookRating(
-                        bookRating: bookModel.volumeInfo!.averageRating ?? 0 ,
+                        bookRating: bookModel.volumeInfo!.averageRating ?? 0,
                         //
                         count: bookModel.volumeInfo!.ratingsCount ?? 0,
-                        // 
+                        //
                       )
                     ],
                   )

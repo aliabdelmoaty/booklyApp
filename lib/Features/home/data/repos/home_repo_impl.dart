@@ -8,32 +8,14 @@ import 'package:tharwatflutter/core/errors/fails.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
-  HomeRepoImpl(this.apiService);
+  HomeRepoImpl(
+    this.apiService,
+  );
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       var data = await apiService.get(
-          endpoint:
-              'volumes?Filtering=free-ebooks&Sorting=newest&subject=programming&q=subject:programming');
-      List<BookModel> books = [];
-      for (var item in data['item']) {
-        books.add(item);
-      }
-      return right(books);
-    } catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBook()async {
-    try {
-      var data = await apiService.get(
-          endpoint:
-              'volumes?Filtering=free-ebooks&q=programming');
+          endpoint: 'volumes?Filtering=free-ebooks&q= احمد خالد توفيق');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromModel(item));
@@ -46,5 +28,42 @@ class HomeRepoImpl implements HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBook() async {
+    try {
+      var data = await apiService.get(
+          endpoint:
+              'volumes?Filtering=free-ebooks&q=سلسلة ما وراء الطبيعة احمد خالد توفيق');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromModel(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 
+    @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({required String category}) async {
+    try {
+      var data = await apiService.get(
+          endpoint:
+              'volumes?subject=رعب&download=epub&q=احمد خالد توفيق');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromModel(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+}

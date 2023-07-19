@@ -28,9 +28,14 @@ class BestSellerListItemTexts extends StatelessWidget {
         const SizedBox(
           height: 3,
         ),
-        Text(
-          authorsBook,
-          style: Styles.textStyle14,
+         SizedBox(
+          width: MediaQuery.of(context).size.width * .5,
+          child: Text(
+            authorsBook,
+            style: Styles.textStyle14,
+            maxLines: 1,
+              overflow: TextOverflow.ellipsis
+          ),
         ),
         const SizedBox(
           height: 3,

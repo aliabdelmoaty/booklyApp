@@ -4,8 +4,7 @@ import 'package:tharwatflutter/core/constants/styles.dart';
 import 'custom_search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
-
+  const SearchViewBody({super.key,});
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -30,5 +29,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomSearchText extends StatelessWidget {
+
+class CustomSearchText extends StatefulWidget {
   const CustomSearchText({super.key});
 
+  @override
+  State<CustomSearchText> createState() => _CustomSearchTextState();
+}
+
+class _CustomSearchTextState extends State<CustomSearchText> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(

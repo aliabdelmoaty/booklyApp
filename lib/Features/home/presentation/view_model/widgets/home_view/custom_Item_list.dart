@@ -3,7 +3,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:tharwatflutter/constants/assets.dart';
+import 'package:tharwatflutter/core/constants/assets.dart';
 
 class ListViewItemImage extends StatelessWidget {
   const ListViewItemImage({

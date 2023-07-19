@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tharwatflutter/core/constants/assets.dart';
+import '../../../../../../core/constants/constants.dart';
 import '../../../../../../core/constants/styles.dart';
 import 'book_rating.dart';
 
@@ -20,7 +21,7 @@ class BestSellerListItemTexts extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .5,
           child: Text(titleBook,
               style: Styles.textStyle20.copyWith(
-                fontFamily: Assets.kGtSectraFine,
+                fontFamily: gtSectraFine,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis),

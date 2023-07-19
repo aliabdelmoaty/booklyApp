@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tharwatflutter/core/constants/styles.dart';
 
 class CustomBottom extends StatelessWidget {
-  const CustomBottom(
+   CustomBottom(
       {super.key,
       required this.backgroundColor,
       required this.textColor,
       this.borderRadius,
+      this.onPressed,
       required this.text,
       this.fontSize});
   final Color backgroundColor;
@@ -14,6 +15,7 @@ class CustomBottom extends StatelessWidget {
   final BorderRadius? borderRadius;
   final String text;
   final double? fontSize;
+  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,7 +25,7 @@ class CustomBottom extends StatelessWidget {
               backgroundColor: backgroundColor,
               shape: RoundedRectangleBorder(
                   borderRadius: borderRadius ?? BorderRadius.circular(16))),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(text,
               style: Styles.textStyle18.copyWith(
                   color: textColor,

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tharwatflutter/Features/home/presentation/view_model/widgets/home_view/book_rating.dart';
 import 'package:tharwatflutter/core/constants/styles.dart';
+import '../../../../data/models/book_model/book_model.dart';
+import '../home_view/book_rating.dart';
 import '../home_view/custom_book_item_image.dart';
 import 'action_book_details.dart';
 import 'custom_book_details_appBar.dart';
 import 'list_view_item_book_details.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +25,27 @@ class BookDetailsViewBody extends StatelessWidget {
                 const CustomBookDetailsAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .22),
-                  child:  CustomBookImage(imageUrl: '',),
+                  child: CustomBookImage(
+                    imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                  ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
-                const Text(
-                  'The Jungle Book',
-                  style: Styles.textStyle30,
+                Text(
+                  bookModel.volumeInfo!.title!,
+                  style: Styles.textStyle30.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: 6,
+                  height: 4,
                 ),
                 Opacity(
                   opacity: .7,
                   child: Text(
-                    'Rudyard Kipling',
+                    bookModel.volumeInfo!.authors![0],
                     style: Styles.textStyle18.copyWith(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w500,
@@ -46,15 +53,17 @@ class BookDetailsViewBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 10,
                 ),
-                // const BookRating(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                // ),
+                BookRating(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  bookRating: bookModel.volumeInfo!.averageRating ?? 0,
+                  count: bookModel.volumeInfo!.ratingsCount ?? 0,
+                ),
                 const SizedBox(
                   height: 40,
                 ),
-                const BooksAction(),
+                 BooksAction(bookModel: bookModel,),
                 const Expanded(
                   child: SizedBox(
                     height: 50,
@@ -71,7 +80,9 @@ class BookDetailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const ListViewBookDetails(),
+                const ListViewBookDetails(
+
+                ),
                 const SizedBox(
                   height: 20,
                 ),

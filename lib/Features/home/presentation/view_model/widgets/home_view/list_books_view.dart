@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tharwatflutter/Features/home/data/models/book_model/book_model.dart';
 import 'package:tharwatflutter/Features/home/presentation/manager/featured_books/feature_books_cubit.dart';
 
+import '../../../../../../core/constants/app_router.dart';
 import '../../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../../core/widgets/progress_loading.dart';
 import 'custom_Item_list.dart';
@@ -20,14 +23,17 @@ class BooksListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
-              itemBuilder: (context, index) =>  Padding(
+              itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
-                    
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                        extra: state.books[index]);
                   },
                   child: ListViewItemImage(
-                    imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail??'https://i.quotev.com/lzpyzwtj6qsa.jpg',
+                    imageUrl:
+                        state.books[index].volumeInfo!.imageLinks!.thumbnail ??
+                            'https://i.quotev.com/lzpyzwtj6qsa.jpg',
                   ),
                 ),
               ),

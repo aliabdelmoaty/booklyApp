@@ -18,7 +18,7 @@ class HomeRepoImpl implements HomeRepo {
           endpoint: 'volumes?Filtering=free-ebooks&q= احمد خالد توفيق');
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromModel(item));
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
@@ -37,7 +37,7 @@ class HomeRepoImpl implements HomeRepo {
               'volumes?Filtering=free-ebooks&q=سلسلة ما وراء الطبيعة احمد خالد توفيق');
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromModel(item));
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
@@ -48,15 +48,33 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
 
-    @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({required String category}) async {
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endpoint: 'volumes?Filtering=free-ebooks&Sorting=relevance &q=subject:Programming');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSearchBook() async {
     try {
       var data = await apiService.get(
           endpoint:
-              'volumes?subject=رعب&download=epub&q=احمد خالد توفيق');
+              'volumes?Filtering=free-ebooks&Sorting=relevance &q=subject:Programming');
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromModel(item));
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {

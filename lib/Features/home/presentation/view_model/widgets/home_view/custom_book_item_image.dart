@@ -2,7 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../constants/assets.dart';
+import '../../../../../../core/constants/assets.dart';
 
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({

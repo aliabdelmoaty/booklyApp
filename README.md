@@ -29,35 +29,6 @@ A Flutter application for discovering and exploring books using the Google Books
    - Tap "Free" or "Preview" to open web reader or external links.
 
 ---
-
-## Installation 🛠️
-
-### Prerequisites
-- Flutter SDK (version 3.0.0 or higher)
-- Google Books API key (free tier)
-
-### Steps
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/bookhub.git
-   cd bookhub
-   ```
-
-2. **Add your API key**:
-   - Replace the placeholder in `api_service.dart` (if applicable) with your Google Books API key.
-
-3. **Install dependencies**:
-   ```bash
-   flutter pub get
-   ```
-
-4. **Run the app**:
-   ```bash
-   flutter run
-   ```
-
----
-
 ## Project Structure 📁
 
 ```

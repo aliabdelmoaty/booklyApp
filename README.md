@@ -11,6 +11,24 @@ A Flutter application for discovering and exploring books using the Google Books
 - **Error Handling**: Clear feedback for API failures and network issues.
 
 ---
+## Usage 📱
+
+1. **Home Screen**:  
+   - Browse featured and newest books in horizontal lists.
+   - Tap any book to view details.
+
+2. **Book Details Screen**:  
+   - View descriptions, authors, ratings, and preview options.
+   - Explore similar books in the same category.
+
+3. **Search Screen**:  
+   - Search for books by keywords (e.g., "Programming").
+   - Tap results to view details.
+
+4. **Preview Books**:  
+   - Tap "Free" or "Preview" to open web reader or external links.
+
+---
 
 ## Installation 🛠️
 
@@ -73,24 +91,7 @@ lib/
 
 ---
 
-## Usage 📱
 
-1. **Home Screen**:  
-   - Browse featured and newest books in horizontal lists.
-   - Tap any book to view details.
-
-2. **Book Details Screen**:  
-   - View descriptions, authors, ratings, and preview options.
-   - Explore similar books in the same category.
-
-3. **Search Screen**:  
-   - Search for books by keywords (e.g., "Programming").
-   - Tap results to view details.
-
-4. **Preview Books**:  
-   - Tap "Free" or "Preview" to open web reader or external links.
-
----
 
 ## Architecture 🏗️
 
